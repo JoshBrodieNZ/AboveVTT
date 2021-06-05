@@ -753,8 +753,8 @@ function drawing_mousedown(e) {
 		);
 		drawClosingArea(window.BEGIN_MOUSEX[0], window.BEGIN_MOUSEY[0], !isNaN(e.data.type));
 	} else {
-		window.BEGIN_MOUSEX = (e.pageX - 200) * (1.0 / window.ZOOM);
-		window.BEGIN_MOUSEY = (e.pageY - 200) * (1.0 / window.ZOOM);
+		window.BEGIN_MOUSEX = Math.round((e.pageX - 200) * (1.0 / window.ZOOM));
+		window.BEGIN_MOUSEY = Math.round((e.pageY - 200) * (1.0 / window.ZOOM));
 		window.MOUSEDOWN = true;
 	}
 
@@ -872,8 +872,8 @@ function drawing_mousemove(e) {
 
 function drawing_mouseup(e) {
 
-	mousex = (e.pageX - 200) * (1.0 / window.ZOOM);
-	mousey = (e.pageY - 200) * (1.0 / window.ZOOM);
+	mousex = Math.round((e.pageX - 200) * (1.0 / window.ZOOM));
+	mousey = Math.round((e.pageY - 200) * (1.0 / window.ZOOM));
 
 	if (e.data.shape === 'select') {
 		$("#fog_overlay").css("z-index", "31");
