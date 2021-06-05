@@ -553,7 +553,9 @@ function redraw_canvas() {
 				ctx.beginPath();
 				ctx.arc(d[0], d[1], d[2], 0, 2 * Math.PI, false);
 				ctx.clip();
-				ctx.clearRect(d[0] - d[2], d[1] - d[2], d[2] * 2, d[2] * 2);
+				ctx.globalCompositeOperation = 'destination-out';
+				ctx.arc(d[0], d[1], d[2], 0, Math.PI*2, true);
+				ctx.fill();
 				ctx.restore();
 				ctx.fillStyle = fogStyle;
 				ctx.arc(d[0], d[1], d[2], 0, 2 * Math.PI, false);
